@@ -1,4 +1,23 @@
+server:
+  port: 8081
+  ssl:
+    enabled: false
+  servlet:
+    context-path: /api/v1
+
 spring:
+  elasticsearch:
+    uris: http://localhost:9200
   data:
     mongodb:
       uri: mongodb://localhost:27017/blogsdb
+
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: DEBUG
+        type:
+          descriptor:
+            sql:
+              BasicTypeDescriptor: TRACE

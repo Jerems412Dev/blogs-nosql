@@ -84,6 +84,12 @@
 			<artifactId>mapstruct-processor</artifactId>
 			<version>${org.mapstruct.version}</version>
 		</dependency>
+
+		<!-- Elastic search -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-elasticsearch</artifactId>
+		</dependency>
 		<dependency>
 			<groupId>org.aspectj</groupId>
 			<artifactId>aspectjweaver</artifactId>

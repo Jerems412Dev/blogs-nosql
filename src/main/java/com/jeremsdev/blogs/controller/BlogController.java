@@ -33,7 +33,8 @@ public class BlogController {
     }
 
     @PutMapping("/update/{idBlog}")
-    public ResponseEntity<BlogDTO> update(@PathVariable String idBlog, @RequestBody BlogDTO blogDTO) {
+    public ResponseEntity<BlogDTO> update(@PathVariable String idBlog,
+                                          @RequestBody BlogDTO blogDTO) {
         logger.info("Received request to update Blog with ID: {}", idBlog);
         try {
             BlogDTO updatedBlog = blogService.update(idBlog, blogDTO);
@@ -85,6 +86,58 @@ public class BlogController {
         } catch (Exception e) {
             logger.error("Error deleting Blog with ID {}: {}", idBlog, e.getMessage());
             throw new ApiRequestException("Error deleting Blog with ID " + idBlog + ": " + new Exception().getMessage());
+        }
+    }
+
+    @GetMapping("/findbyfield/{field}/{content}")
+    public ResponseEntity<List<BlogDTO>> findByField(
+            @PathVariable String field,
+            @PathVariable String content) {
+        logger.info("Received request to find blogs by {} with value: {}", field, content);
+        try {
+            List<BlogDTO> blogs = blogService.findByField(field, content);
+            return new ResponseEntity<>(blogs, HttpStatus.OK);
+        } catch (ApiRequestException ex) {
+            logger.error("No blogs found for field {} with value {}: {}", field, content, ex.getMessage());
+            throw new ApiRequestException("No blogs found for the given field and content");
+        } catch (Exception e) {
+            logger.error("Error occurred while retrieving blogs for field {} with value {}: {}", field, content, e.getMessage());
+            throw new ApiRequestException("An error occurred while retrieving blogs: " + new Exception().getMessage());
+        }
+    }
+
+    @GetMapping("/findbyfieldindex/{field}/{content}")
+    public ResponseEntity<List<BlogDTO>> findByFieldIndex(
+            @PathVariable String field,
+            @PathVariable String content) {
+        logger.info("Received request to find blogs in index by {} with value: {}", field, content);
+        try {
+            List<BlogDTO> blogs = blogService.findByFieldIndex(field, content);
+            return new ResponseEntity<>(blogs, HttpStatus.OK);
+        } catch (ApiRequestException ex) {
+            logger.error("No blogs found in index for field {} with value {}: {}", field, content, ex.getMessage());
+            throw new ApiRequestException("No blogs found in the index for the given field and content");
+        } catch (Exception e) {
+            logger.error("Error occurred while retrieving blogs from index for field {} with value {}: {}", field, content, e.getMessage());
+            throw new ApiRequestException("An error occurred while retrieving blogs from index: " + new Exception().getMessage());
+        }
+    }
+
+    @GetMapping("/findbycontain")
+    public ResponseEntity<List<BlogDTO>> findByContain(
+            @RequestParam(required = false) String titre,
+            @RequestParam(required = false) String description,
+            @RequestParam(required = false) String content) {
+        logger.info("Received request to find blogs by title, description, or content");
+        try {
+            List<BlogDTO> blogs = blogService.findByContain(titre, description, content);
+            return new ResponseEntity<>(blogs, HttpStatus.OK);
+        } catch (ApiRequestException ex) {
+            logger.error("No blogs found with the given criteria: title={}, description={}, content={}: {}", titre, description, content, ex.getMessage());
+            throw new ApiRequestException("No blogs found for the given criteria");
+        } catch (Exception e) {
+            logger.error("Error occurred while retrieving blogs: title={}, description={}, content={}: {}", titre, description, content, e.getMessage());
+            throw new ApiRequestException("An error occurred while retrieving blogs: " + new Exception().getMessage());
         }
     }
 

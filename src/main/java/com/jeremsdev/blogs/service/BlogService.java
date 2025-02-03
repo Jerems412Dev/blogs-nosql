@@ -12,5 +12,7 @@ public interface BlogService {
     BlogDTO getById(String idBlog);
     List<BlogDTO> findAll();
     <T> List<BlogDTO> findByField(T field, T content);
+    <T> List<BlogDTO> findByFieldIndex(T field, T content);
+    List<BlogDTO> findByContain(String titre, String description, String content);
     void delete(String idBlog);
 }
