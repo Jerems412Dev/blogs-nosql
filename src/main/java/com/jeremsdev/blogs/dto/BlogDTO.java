@@ -1,11 +1,10 @@
-package com.jeremsdev.blogs.model;
+package com.jeremsdev.blogs.dto;
 
+import com.jeremsdev.blogs.model.Category;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDate;
 
@@ -13,9 +12,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Document(collection = "blogs")
-public class Blog {
-    @Id
+public class BlogDTO {
     private String idBlog;
     private String title;
     private String description;
