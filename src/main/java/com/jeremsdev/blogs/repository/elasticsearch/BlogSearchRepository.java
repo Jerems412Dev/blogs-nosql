@@ -1,4 +1,4 @@
-package com.jeremsdev.blogs.repository;
+package com.jeremsdev.blogs.repository.elasticsearch;
 
 import com.jeremsdev.blogs.model.BlogIndex;
 import org.springframework.data.elasticsearch.repository.ElasticsearchRepository;

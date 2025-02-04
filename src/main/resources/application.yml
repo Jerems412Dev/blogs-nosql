@@ -8,12 +8,17 @@ server:
 spring:
   elasticsearch:
     uris: http://localhost:9200
+    username: elastic
+    password:
   data:
     mongodb:
-      uri: mongodb://localhost:27017/blogsdb
+      uri: mongodb://localhost:27017/
+      database: blogsdb
 
 logging:
   level:
+    enabled: DEBUG
+    org.springframework.data.mongodb: DEBUG
     org:
       hibernate:
         SQL: DEBUG

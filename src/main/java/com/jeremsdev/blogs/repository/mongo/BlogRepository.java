@@ -1,4 +1,4 @@
-package com.jeremsdev.blogs.repository;
+package com.jeremsdev.blogs.repository.mongo;
 
 import com.jeremsdev.blogs.model.Blog;
 import com.jeremsdev.blogs.model.Category;
