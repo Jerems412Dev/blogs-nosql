@@ -28,7 +28,7 @@ public class BlogController {
             return new ResponseEntity<>(addedBlog, HttpStatus.CREATED);
         } catch (Exception e) {
             logger.error("Error adding Blog: {}", e.getMessage());
-            throw new ApiRequestException("Error adding Blog: " + new Exception().getMessage());
+            throw new ApiRequestException("Error adding Blog: " + e.getMessage());
         }
     }
 
@@ -42,7 +42,7 @@ public class BlogController {
             return new ResponseEntity<>(updatedBlog, HttpStatus.OK);
         } catch (Exception e) {
             logger.error("Error updating Blog with ID {}: {}", idBlog, e.getMessage());
-            throw new ApiRequestException("Error updating Blog with ID " + idBlog + ": " + new Exception().getMessage());
+            throw new ApiRequestException("Error updating Blog with ID " + idBlog + ": " + e.getMessage());
         }
     }
 
@@ -60,7 +60,7 @@ public class BlogController {
             throw new ApiRequestException();
         } catch (Exception e) {
             logger.error("Error retrieving Blog with ID {}: {}", idBlog, e.getMessage());
-            throw new ApiRequestException("Error retrieving Blog with ID " + idBlog + ": " + new Exception().getMessage());
+            throw new ApiRequestException("Error retrieving Blog with ID " + idBlog + ": " + e.getMessage());
         }
     }
 
@@ -72,7 +72,7 @@ public class BlogController {
             return new ResponseEntity<>(blogs, HttpStatus.OK);
         } catch (Exception e) {
             logger.error("Error retrieving Blog list: {}", e.getMessage());
-            throw new ApiRequestException("Error retrieving Blog list: " + new Exception().getMessage());
+            throw new ApiRequestException("Error retrieving Blog list: " + e.getMessage());
         }
     }
 
@@ -85,7 +85,7 @@ public class BlogController {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         } catch (Exception e) {
             logger.error("Error deleting Blog with ID {}: {}", idBlog, e.getMessage());
-            throw new ApiRequestException("Error deleting Blog with ID " + idBlog + ": " + new Exception().getMessage());
+            throw new ApiRequestException("Error deleting Blog with ID " + idBlog + ": " + e.getMessage());
         }
     }
 
@@ -102,7 +102,7 @@ public class BlogController {
             throw new ApiRequestException("No blogs found for the given field and content");
         } catch (Exception e) {
             logger.error("Error occurred while retrieving blogs for field {} with value {}: {}", field, content, e.getMessage());
-            throw new ApiRequestException("An error occurred while retrieving blogs: " + new Exception().getMessage());
+            throw new ApiRequestException("An error occurred while retrieving blogs: " + e.getMessage());
         }
     }
 
@@ -119,7 +119,7 @@ public class BlogController {
             throw new ApiRequestException("No blogs found in the index for the given field and content");
         } catch (Exception e) {
             logger.error("Error occurred while retrieving blogs from index for field {} with value {}: {}", field, content, e.getMessage());
-            throw new ApiRequestException("An error occurred while retrieving blogs from index: " + new Exception().getMessage());
+            throw new ApiRequestException("An error occurred while retrieving blogs from index: " + e.getMessage());
         }
     }
 
@@ -137,7 +137,7 @@ public class BlogController {
             throw new ApiRequestException("No blogs found for the given criteria");
         } catch (Exception e) {
             logger.error("Error occurred while retrieving blogs: title={}, description={}, content={}: {}", titre, description, content, e.getMessage());
-            throw new ApiRequestException("An error occurred while retrieving blogs: " + new Exception().getMessage());
+            throw new ApiRequestException("An error occurred while retrieving blogs: " + e.getMessage());
         }
     }
 

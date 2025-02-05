@@ -18,8 +18,7 @@ public class BlogIndex {
     private String title;
     private String description;
     private String content;
-    private LocalDate publicationDate;
+    private String publicationDate;
     private String author;
-    private boolean state;
     private Category category;
 }

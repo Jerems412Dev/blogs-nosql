@@ -25,7 +25,6 @@ public class BlogValidator {
         validateRequiredField(blogDTO.getTitle(),"Title");
         validateRequiredField(blogDTO.getContent(),"Content");
         validateRequiredField(blogDTO.getPublicationDate(),"Publication Date");
-        validateRequiredField(blogDTO.isState(),"State");
     }
 
     /**
