@@ -89,10 +89,10 @@ public class BlogController {
         }
     }
 
-    @GetMapping("/findbyfield/{field}/{content}")
+    @GetMapping("/findbyfield/{field}")
     public ResponseEntity<List<BlogDTO>> findByField(
             @PathVariable String field,
-            @PathVariable String content) {
+            @RequestParam String content) {
         logger.info("Received request to find blogs by {} with value: {}", field, content);
         try {
             List<BlogDTO> blogs = blogService.findByField(field, content);
@@ -106,10 +106,10 @@ public class BlogController {
         }
     }
 
-    @GetMapping("/findbyfieldindex/{field}/{content}")
+    @GetMapping("/findbyfieldindex/{field}")
     public ResponseEntity<List<BlogDTO>> findByFieldIndex(
             @PathVariable String field,
-            @PathVariable String content) {
+            @RequestParam String content) {
         logger.info("Received request to find blogs in index by {} with value: {}", field, content);
         try {
             List<BlogDTO> blogs = blogService.findByFieldIndex(field, content);

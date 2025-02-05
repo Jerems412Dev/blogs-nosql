@@ -106,7 +106,7 @@ public class BlogServiceImpl implements BlogService {
         logger.info("Successfully retrieved {} blogs", blogs.size());
         return blogs.stream()
                 .map(blogMapper::toDTO)
-                .collect(Collectors.toList());
+                .toList();
     }
 
     @Override
@@ -126,7 +126,7 @@ public class BlogServiceImpl implements BlogService {
         logger.info("Successfully retrieved {} blogs", blogs.size());
         return blogs.stream()
                 .map(blogIndexMapper::toDTO)
-                .collect(Collectors.toList());
+                .toList();
     }
 
     @Override
@@ -142,7 +142,7 @@ public class BlogServiceImpl implements BlogService {
         logger.info("Successfully retrieved {} blogs", blogs.size());
         return blogs.stream()
                 .map(blogIndexMapper::toDTO)
-                .collect(Collectors.toList());
+                .toList();
     }
 
     @Override
@@ -159,7 +159,7 @@ public class BlogServiceImpl implements BlogService {
         logger.info("Successfully retrieved {} blogs", blogs.size());
         return blogs.stream()
                 .map(blogMapper::toDTO)
-                .collect(Collectors.toList());
+                .toList();
     }
 
     @Override
