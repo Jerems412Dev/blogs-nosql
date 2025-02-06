@@ -3,10 +3,10 @@
 It's a simple search engine for a small blog site, combining MongoDB (NoSQL storage) and Elasticsearch (fast full-text search).
 ## Content
 
-✅ MongoDB and Spring Data MongoDB
-✅ NoSQL modelling: documents, collections, indexing
-✅ Full-text search with Elasticsearch and Spring Boot
-✅ MongoDB <-> Elasticsearch synchronization
+- MongoDB and Spring Data MongoDB
+- NoSQL modelling: documents, collections, indexing
+- Full-text search with Elasticsearch and Spring Boot
+- MongoDB <-> Elasticsearch synchronization
 
 ## Link
 
